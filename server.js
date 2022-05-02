@@ -36,7 +36,6 @@ app.use(express.json())
 
 // Load routes
 const Routes = require('./server/routes/router')
-const { default: axios } = require('axios')
 app.use(Routes)
 // app.use('/', require('./server/routes/router'))
 
