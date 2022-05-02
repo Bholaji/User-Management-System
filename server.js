@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const path = require('path')
 const morgan = require('morgan')
 const bodyparser = require('body-parser')
+const axios = require('axios')
 
 const connectDB = require('./server/database/connection')
 
@@ -16,6 +17,8 @@ app.use(morgan('tiny'))
 
 //mongodb connection
 connectDB()
+
+axios.defaults.baseURL = window.baseURL = "https://bholaji-user-management-system.herokuapp.com/api"
 
 //Parse request to body-parser
 app.use(bodyparser.urlencoded({ extended: true }))
@@ -33,8 +36,11 @@ app.use(express.json())
 
 // Load routes
 const Routes = require('./server/routes/router')
+const { default: axios } = require('axios')
 app.use(Routes)
 // app.use('/', require('./server/routes/router'))
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
