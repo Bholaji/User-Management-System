@@ -18,7 +18,7 @@ app.use(morgan('tiny'))
 //mongodb connection
 connectDB()
 
-axios.defaults.baseURL = "https://bholaji-user-management-system.herokuapp.com/"
+axios.defaults.baseURL = "https://bholaji-user-management-system.herokuapp.com/api"
 
 //Parse request to body-parser
 app.use(bodyparser.urlencoded({ extended: true }))
